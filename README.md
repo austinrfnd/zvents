@@ -18,7 +18,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+```ruby
+
+# set api key
+Zvents::Event.api_key '123'
+
+# Finding an event
+event = Zvents::Event.event.find('event_id')
+
+```
 
 ## Contributing
 
