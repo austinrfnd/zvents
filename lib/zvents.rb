@@ -6,6 +6,7 @@ require 'virtus'
 require 'faraday'
 require 'faraday_middleware'
 require 'zvents/event'
+require 'zvents/venue'
 
 module Zvents
 end

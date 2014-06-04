@@ -21,4 +21,13 @@ describe "Event" do
             }.to raise_error(Zvents::EventNotFoundError)
         end
     end
+    describe 'venue' do
+        before :each do
+            Zvents.api_key = ENV['ZVENT_API_KEY']
+        end
+        it "should return a new event instance" do
+            event = Zvents::Event.find(370741694)
+            expect(event.venue).to be_kind_of(Zvents::Venue)
+        end
+       
 end

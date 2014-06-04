@@ -1,32 +1,29 @@
 module Zvents
-    class Event
+    class Venue
         include Virtus.model
-
-        @venue # the venue for the event
-
+        
+        attribute :address, String
         attribute :avg_ratings, Array
-        attribute :categories, Array
+        attribute :city, String
+        attribute :country, String
         attribute :creator, String
         attribute :description, String
-        attribute :endtime, String
         attribute :external_urls, Array
         attribute :id, Integer
         attribute :images, Array
+        attribute :latitude, Float
         attribute :link, String
+        attribute :longitude
         attribute :name, String
+        attribute :neighborhood, String
         attribute :parent_id, Integer
-        attribute :performers, Array
         attribute :phone, String
-        attribute :price, String
-        attribute :recurrences, Array
-        attribute :sponsored_data, Array
-        attribute :starttime, String
-        attribute :summary, String
+        attribute :state, String
         attribute :tags, Array
         attribute :url, String
-        attribute :venue_id, Integer
+        attribute :zipcode, String
         
-        # Zvent::Event.find('123123') => an instance of an event
+        # Zvent::Venue.find('123123') => an instance of a venue
         # 
         def self.find(id)
             response = Zvents.connection.get do |req|                           
@@ -37,15 +34,8 @@ module Zvents
             end
             
             if response.body['rsp']['status'] != 'ok'
-                raise Zvents::EventNotFoundError.new("could not find event with id #{id}") 
+                raise Zvents::VenueNotFoundError.new("could not find venue with id #{id}") 
             end
-            self.new(response.body['rsp']['content']['events'].first)
-        end
-        
-        # venue() => an instance of the venue where the event takes place
-        #
-        def venue
-            @venue ||= Zvents::Venue.find(venue_id)
+            self.new(response.body['rsp']['content']['venues'].first)
         end
     end
-end

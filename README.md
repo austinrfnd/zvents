@@ -25,7 +25,14 @@ Or install it yourself as:
 Zvents::Event.api_key '123'
 
 # Finding an event
-event = Zvents::Event.event.find('event_id')
+event = Zvents::Event.find('event_id')
+
+# Finding the venue of an eventt
+event = Zvents::Event.find('event_id')
+venue = event.venue
+
+# Finding a venue
+venue = Zvents::Venue.find('venue_id')
 
 ```
 
