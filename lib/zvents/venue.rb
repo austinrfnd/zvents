@@ -27,7 +27,7 @@ module Zvents
         # 
         def self.find(id)
             response = Zvents.connection.get do |req|                           
-                req.url '/partner_rest/event'
+                req.url '/partner_rest/venue'
                 req.params['id'] = id
                 req.params['key'] = Zvents.api_key
                 req.params['format'] = 'json'
