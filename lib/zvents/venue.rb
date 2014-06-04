@@ -39,3 +39,4 @@ module Zvents
             self.new(response.body['rsp']['content']['venues'].first)
         end
     end
+end

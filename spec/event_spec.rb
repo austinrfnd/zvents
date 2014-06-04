@@ -29,5 +29,5 @@ describe "Event" do
             event = Zvents::Event.find(370741694)
             expect(event.venue).to be_kind_of(Zvents::Venue)
         end
-       
+    end   
 end
