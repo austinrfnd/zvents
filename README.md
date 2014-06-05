@@ -1,5 +1,7 @@
 # Zvents
 
+[![Code Climate](https://codeclimate.com/github/austinrfnd/zvents.png)](https://codeclimate.com/github/austinrfnd/zvents)
+
 This is a ruby wrapper around the Zvents API.
 
 ## Installation
