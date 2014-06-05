@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "zvents"
   spec.version       = Zvents::VERSION
   spec.authors       = ["Austin Fonacier", 'Eric Kuecks']
-  spec.email         = ["austinrf@gmail.com', 'ekuecks@ucla.edu']
+  spec.email         = ["austinrf@gmail.com", 'ekuecks@ucla.edu']
   spec.summary       = "Ruby wrapper for the Zvents API"
   spec.description   = "Ruby wrapper for the Zvents API"
   spec.homepage      = "http://github.com/austinrfnd/zvents"
