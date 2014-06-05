@@ -1,8 +1,9 @@
 module Zvents
     class Event
+        require 'zvents/venue'
         include Virtus.model
 
-        @venue # the venue for the event
+        RESOURCE_URL = '/partner_rest/event'
 
         attribute :avg_ratings, Array
         attribute :categories, Array
@@ -24,13 +25,14 @@ module Zvents
         attribute :summary, String
         attribute :tags, Array
         attribute :url, String
+        attribute :venue, Venue
         attribute :venue_id, Integer
         
         # Zvent::Event.find('123123') => an instance of an event
         # 
         def self.find(id)
             response = Zvents.connection.get do |req|                           
-                req.url '/partner_rest/event'
+                req.url RESOURCE_URL
                 req.params['id'] = id
                 req.params['key'] = Zvents.api_key
                 req.params['format'] = 'json'

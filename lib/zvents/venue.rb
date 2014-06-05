@@ -2,6 +2,8 @@ module Zvents
     class Venue
         include Virtus.model
         
+        RESOURCE_URL = '/partner_rest/venue'
+
         attribute :address, String
         attribute :avg_ratings, Array
         attribute :city, String
@@ -27,7 +29,7 @@ module Zvents
         # 
         def self.find(id)
             response = Zvents.connection.get do |req|                           
-                req.url '/partner_rest/venue'
+                req.url RESOURCE_URL
                 req.params['id'] = id
                 req.params['key'] = Zvents.api_key
                 req.params['format'] = 'json'
