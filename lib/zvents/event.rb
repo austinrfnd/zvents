@@ -31,12 +31,7 @@ module Zvents
         # Zvent::Event.find('123123') => an instance of an event
         # 
         def self.find(id)
-            response = Zvents.connection.get do |req|                           
-                req.url RESOURCE_URL
-                req.params['id'] = id
-                req.params['key'] = Zvents.api_key
-                req.params['format'] = 'json'
-            end
+            response = Zvents.find(RESOURCE_URL, id)
             
             if response.body['rsp']['status'] != 'ok'
                 raise Zvents::EventNotFoundError.new("could not find event with id #{id}") 
