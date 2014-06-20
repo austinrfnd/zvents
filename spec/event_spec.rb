@@ -5,7 +5,7 @@ describe "Event" do
             expect(event.creator).to eql("Austin Fonacier")
         end # rake
         it "should be able to create a venue for the event" do
-            event = Zvents::Event.new({id: '123', name: 'my_event', 
+            event = Zvents::Event.new({id: '123', name: 'my_event', venue_id: "1",
                                        venue: {id: '1', name: 'venue_name'}})
             expect(event.venue).to be_kind_of(Zvents::Venue)
             expect(event.venue.id).to eq(1)
