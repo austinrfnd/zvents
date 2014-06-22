@@ -4,4 +4,7 @@ module Zvents
     
     class VenueNotFoundError < StandardError
     end
+
+    class SearchError < StandardError
+    end
 end

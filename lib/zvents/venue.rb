@@ -28,7 +28,8 @@ module Zvents
         # Zvent::Venue.find('123123') => an instance of a venue
         # 
         def self.find(id)
-            response = Zvents.find(RESOURCE_URL, id)
+            parameters = {id: id}
+            response = Zvents.find(RESOURCE_URL, parameters)
             
             if response.body['rsp']['status'] != 'ok'
                 raise Zvents::VenueNotFoundError.new("could not find venue with id #{id}") 
