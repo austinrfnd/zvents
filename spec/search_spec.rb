@@ -7,5 +7,11 @@ describe "Search" do
             search = Zvents.search({where: 'San Franciso'})
             expect(search).to be_kind_of(Zvents::SearchResults)
         end # rake
+        it "should initialize the venues for the events if it can" do
+            search = Zvents.search({where: 'San Francisco'})
+            search.events.each do |event|
+                expect(event.venue.id).to eq(event.venue_id)
+            end
+        end
     end   
 end

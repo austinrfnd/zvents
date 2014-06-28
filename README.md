@@ -40,7 +40,8 @@ search_results = Zvents.search('search parameters')
 ### cat, has_kids, city, neighborhood. trim. has_ticket, sequence
 ex:
 search_results = Zvents.search({where: "San Francisco"})
-
+events = search_results.events
+venues = search_results.venues
 
 # what = parameters[:what] e.g. "parade"
 # where = parameters[:where] e.g. "San Francisco", "94131", 
@@ -66,7 +67,7 @@ search_results = Zvents.search({where: "San Francisco"})
 #   only events with tickets for sale)
 # sequence = parameters[:sequence] (restrict search to events
 #   within a sequence. Multiple sequence ids can be provided
-#   seperated by a comma.
+#   separated by a comma)
 
 
 

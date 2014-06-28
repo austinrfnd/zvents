@@ -37,7 +37,7 @@ module Zvents
     #   only events with tickets for sale)
     # sequence = parameters[:sequence] (restrict search to events
     #   within a sequence. Multiple sequence ids can be provided
-    #   seperated by a comma.
+    #   separated by a comma)
       
     def self.search(parameters = {})
         resource_url = "/partner_rest/search"
@@ -45,7 +45,8 @@ module Zvents
         if response.body['rsp']['status'] != 'ok'
               raise Zvents::SearchError.new("search failed") 
         end
-        SearchResults.new(response.body['rsp']['content'])
+        search_hash = response.body['rsp']['content']
+        SearchResults.new(search_hash)
      end
 
      private 
