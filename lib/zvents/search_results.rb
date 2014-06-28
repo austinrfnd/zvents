@@ -9,14 +9,16 @@ module Zvents
         attribute :venues, Array[Venue]
         
         def events
-            unless @venues_inialized
-                @events.each do |event|
-                    @venues.each do |venue|
-                        if event.venue_id == venue.id
-                            event.venue = venue
-                            break
-                         end
+            unless @venues_initialized
+                (0...@events.length).each do |i|
+                    if @venues[i]
+                        @events[i].venue = @venues[i]
                     end
+                        #if event.venue_id == venue.id
+                        #    event.venue = venue
+                        #    break
+                        # end
+                    #end
                 end
             end
             @venues_initialized = true
