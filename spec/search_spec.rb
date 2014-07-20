@@ -13,5 +13,5 @@ describe "Search" do
                 expect(event.venue.id).to eq(event.venue_id)
             end
         end
-    end   
+    end
 end

@@ -4,21 +4,13 @@ module Zvents
         require 'zvents/venue'
         include Virtus.model
 
-        @venues_initialized
         attribute :events, Array[Event]
         attribute :venues, Array[Venue]
-        
+
         def events
             unless @venues_initialized
-                (0...@events.length).each do |i|
-                    if @venues[i]
-                        @events[i].venue = @venues[i]
-                    end
-                        #if event.venue_id == venue.id
-                        #    event.venue = venue
-                        #    break
-                        # end
-                    #end
+                @events.each do |event|
+                    event.venue = @venues.detect{|venue| venue.id == event.venue_id}
                 end
             end
             @venues_initialized = true
