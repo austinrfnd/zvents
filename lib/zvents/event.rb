@@ -37,8 +37,7 @@ module Zvents
             if response.body['rsp']['status'] != 'ok'
                 raise Zvents::EventNotFoundError.new("could not find event with id #{id}")
             end
-            venue_hash = Hash.new
-            venue_hash[:venue] = response.body['rsp']['content']['venues'].first
+            venue_hash = {venue: response.body['rsp']['content']['venues'].first}
             self.new(response.body['rsp']['content']['events'].first.merge(venue_hash))
         end
 
