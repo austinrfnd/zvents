@@ -27,20 +27,21 @@ module Zvents
         attribute :url, String
         attribute :venue, Venue
         attribute :venue_id, Integer
-        
+
         # Zvent::Event.find('123123') => an instance of an event
-        # 
+        #
         def self.find(id)
-            response = Zvents.find(RESOURCE_URL, id)
-            
+            parameters = {id: id}
+            response = Zvents.find(RESOURCE_URL, parameters)
+
             if response.body['rsp']['status'] != 'ok'
-                raise Zvents::EventNotFoundError.new("could not find event with id #{id}") 
+                raise Zvents::EventNotFoundError.new("could not find event with id #{id}")
             end
             venue_hash = Hash.new
             venue_hash[:venue] = response.body['rsp']['content']['venues'].first
             self.new(response.body['rsp']['content']['events'].first.merge(venue_hash))
         end
-        
+
         # venue() => an instance of the venue where the event takes place
         #
         def venue
