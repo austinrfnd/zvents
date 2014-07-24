@@ -1,0 +1,4 @@
+=== 0.1.0
+  - Search API endpoint
+  - Event find by id endpoint implemented
+  - Venue find by id endpoint implemented
