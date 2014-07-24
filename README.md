@@ -2,7 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/austinrfnd/zvents.png)](https://codeclimate.com/github/austinrfnd/zvents)
 
-This is a ruby wrapper around the Zvents API.
+This is a ruby wrapper around the Zvents API.  This is a replacement for the old Zvents-Gem.
 
 ## Installation
 
@@ -38,7 +38,7 @@ venue = Zvents::Venue.find('venue_id')
 
 # Searching
 search_results = Zvents.search('search parameters')
-### search parameters are what, where, when, radius, limit, offset, spn_limit, 
+### search parameters are what, where, when, radius, limit, offset, spn_limit,
 ### cat, has_kids, city, neighborhood. trim. has_ticket, sequence
 ex:
 search_results = Zvents.search({where: "San Francisco"})
@@ -46,11 +46,11 @@ events = search_results.events
 venues = search_results.venues
 
 # what = parameters[:what] e.g. "parade"
-# where = parameters[:where] e.g. "San Francisco", "94131", 
+# where = parameters[:where] e.g. "San Francisco", "94131",
 #   "-74.0BY:40.9" (Latitude by longitude), "California"
 # when = parameters[:when] e.g. "monday to thursday",
 #   "10/30/2007 to 11/4/2007"
-# radius = parameters[:radius] 
+# radius = parameters[:radius]
 #   (number of miles around where field to search)
 # limit = parameters[:limit] (max number of items to return)
 # offset = parameters[:offset] (number of items to skip from
@@ -59,7 +59,7 @@ venues = search_results.venues
 #   items to return)
 # cat = parameters[:cat] (restrict your search to a specific
 #   category)
-# has_kids = parameters[:has_kids] (1 or 0. 
+# has_kids = parameters[:has_kids] (1 or 0.
 #   1 means kid friendly. Events only)
 # city = parameters[:city]
 # neighborhood = parameters[:neighborhood]
