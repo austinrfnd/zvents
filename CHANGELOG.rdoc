@@ -2,3 +2,6 @@
   - Search API endpoint
   - Event find by id endpoint implemented
   - Venue find by id endpoint implemented
+
+=== 0.1.1
+  - SearchResults event function optimized
