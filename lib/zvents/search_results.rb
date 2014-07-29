@@ -6,11 +6,16 @@ module Zvents
 
         attribute :events, Array[Event]
         attribute :venues, Array[Venue]
-
+        
         def events
-            unless @venues_initialized
+           unless @venues_initialized
+                venue_hash = {} # A hash allows for this method to be run in linear time
+                                # at the cost of space
+                @venues.each do |venue|
+                    venue_hash[venue.id] = venue
+                end
                 @events.each do |event|
-                    event.venue = @venues.detect{|venue| venue.id == event.venue_id}
+                    event.venue = venue_hash[event.venue_id]
                 end
             end
             @venues_initialized = true
